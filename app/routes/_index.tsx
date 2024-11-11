@@ -4,6 +4,7 @@ import { promises as fs } from "fs";
 import { useLoaderData } from "@remix-run/react";
 import { TrackInput } from "~/components/track-input";
 import { GuessAttempts } from "~/components/attempts";
+import { ProgressBar } from "~/components/progress-bar";
 const MAX_TRIES = 6;
 
 export const meta: MetaFunction = () => {
@@ -58,6 +59,8 @@ export default function Index() {
       const element = document.getElementById("embed-iframe");
       const options = {
         uri: `spotify:track:${trackId}`,
+        width: 0,
+        height: 0,
       };
       const callback = (EmbedController) => {
         setEmbedController(EmbedController);
@@ -77,16 +80,15 @@ export default function Index() {
   }, [progress, limit, embedController]);
 
   return (
-    <div className="font-sans text-white bg-black">
+    <div className="font-sans text-white">
       <header className="w-full h-10 text-xl flex justify-center border-solid border-b border-white">
         BMTHdle
       </header>
-      <div id="content" className="flex flex-col items-center px-10">
+      <div id="content" className="max-w-screen-sm mx-auto">
         <GuessAttempts />
         <p>{progress}</p>
-        <div>
-          <div id="embed-iframe" className="hidden"></div>
-        </div>
+        <ProgressBar progress={progress} />
+        <div id="embed-iframe"></div>
         <button
           disabled={!embedController}
           onClick={() => {
