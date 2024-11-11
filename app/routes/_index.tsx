@@ -14,7 +14,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export async function loader({ request }: LoaderFunctionArgs) {
+export async function loader() {
   const fileContents = await fs.readFile(
     new URL("../static/tracks.json", import.meta.url),
     { encoding: "utf-8" }
@@ -27,10 +27,6 @@ export async function loader({ request }: LoaderFunctionArgs) {
 
   return { trackId };
 }
-
-const play = (embedController: any) => {
-  embedController.restart();
-};
 
 const useScript = () => {
   useEffect(() => {
@@ -46,6 +42,7 @@ export default function Index() {
   const [tries, setTries] = useState(0);
   const [selectedTrackId, setSelectedTrackId] = useState(null);
   const [embedController, setEmbedController] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [limit, setLimit] = useState(2);
   const [skip, setSkip] = useState(1);
@@ -66,6 +63,7 @@ export default function Index() {
         setEmbedController(EmbedController);
         EmbedController.addListener("playback_update", (e) => {
           const newProgress = parseInt(e.data.position / 1000, 10);
+          setIsPlaying(!e.data.isPaused);
           setProgress(newProgress);
         });
       };
@@ -75,7 +73,13 @@ export default function Index() {
 
   useEffect(() => {
     if (progress === limit && embedController) {
+      console.log(progress, limit);
+      // setTimeout(() => {
+      //   embedController.pause();
+      //   setProgress(0);
+      // }, 150);
       embedController.pause();
+      setProgress(0);
     }
   }, [progress, limit, embedController]);
 
@@ -87,37 +91,41 @@ export default function Index() {
       <div id="content" className="max-w-screen-sm mx-auto">
         <GuessAttempts />
         <p>{progress}</p>
-        <ProgressBar progress={progress} />
+        <ProgressBar progress={progress} limit={limit} isPlaying={isPlaying} />
         <div id="embed-iframe"></div>
         <button
           disabled={!embedController}
           onClick={() => {
-            play(embedController);
+            if (embedController) {
+              embedController.restart();
+            }
           }}
         >
           Play
         </button>
-        <TrackInput />
-        <div id="attempt-actions" className="flex mt-3 w-80 justify-between">
-          <button
-            id="skip"
-            className="rounded-md min-w-16 border-1 bg-blue-700 p-2"
-            disabled={skip > 5}
-            onClick={() => {
-              setLimit(limit + skip);
-              setSkip(skip + 1);
-            }}
-          >
-            Skip (+{skip}s)
-          </button>
-          <button
-            id="submit"
-            className="rounded-md min-w-16 border-1 bg-pink-300 p-2"
-            disabled={tries == MAX_TRIES}
-            onClick={() => {}}
-          >
-            Submit
-          </button>
+        <div className="w-full mx-auto">
+          <TrackInput />
+          <div id="attempt-actions" className="flex mt-3 justify-between">
+            <button
+              id="skip"
+              className="rounded-md min-w-16 border-1 bg-blue-700 p-2"
+              disabled={skip > 5}
+              onClick={() => {
+                setLimit(limit + skip);
+                setSkip(skip + 1);
+              }}
+            >
+              Skip (+{skip}s)
+            </button>
+            <button
+              id="submit"
+              className="rounded-md min-w-16 border-1 bg-pink-300 p-2"
+              disabled={tries == MAX_TRIES}
+              onClick={() => {}}
+            >
+              Submit
+            </button>
+          </div>
         </div>
         <p>Limit: {limit} seconds</p>
       </div>

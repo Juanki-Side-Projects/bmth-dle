@@ -8,10 +8,10 @@ export const TrackInput = () => {
   const [selectedTrack, setSelectedTrack] = useState(null);
   const [trackText, setTrackText] = useState("");
   return (
-    <div>
+    <div className="relative">
       <input type="text" id="trackId" className="hidden" aria-hidden="true" />
       <input
-        className="w-80 h-10 border-2 leading-tight"
+        className="w-full h-10 border-2 leading-tight bg-inherit"
         type="text"
         id="track"
         value={trackText}
@@ -41,7 +41,7 @@ export const Options = ({ trackText }) => {
     .filter(({ name }) => regex.test(name))
     .slice(0, TRACKS_SHOWN);
   return (
-    <div className="w-80 h-12 border-2" style={{ lineHeight: "100%" }}>
+    <div className="w-80 h-12 border-2">
       {filteredTracks.map(({ name, artists, id }) => {
         return (
           <span key={id} className="w-full h-full border-2 flex items-center">
