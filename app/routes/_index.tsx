@@ -1,4 +1,4 @@
-import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from "@remix-run/node";
 import { useEffect, useState } from "react";
 import { promises as fs } from "fs";
 import { useLoaderData } from "@remix-run/react";
@@ -104,7 +104,10 @@ export default function Index() {
           Play
         </button>
         <div className="w-full mx-auto">
-          <TrackInput />
+          <TrackInput
+            setSelectedTrackId={setSelectedTrackId}
+            selectedTrackId={selectedTrackId}
+          />
           <div id="attempt-actions" className="flex mt-3 justify-between">
             <button
               id="skip"
