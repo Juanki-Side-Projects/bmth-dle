@@ -4,17 +4,24 @@ import { tracks } from "~/static/tracks";
 const TRACKS_SHOWN = 10;
 
 export interface Props {
-  selectedTrackId: number;
-  setSelectedTrackId: (t: string) => void;
+  selectedTrackId: string | null;
+  setSelectedTrackId: (t: string | null) => void;
+  trackText: string;
+  setTrackText: (t: string) => void;
 }
 
-export const TrackInput = ({ selectedTrackId, setSelectedTrackId }: Props) => {
+export const TrackInput = ({
+  selectedTrackId,
+  setSelectedTrackId,
+  trackText,
+  setTrackText,
+}: Props) => {
   const [showOptions, setShowOptions] = useState(false);
-  const [trackText, setTrackText] = useState("");
+
   return (
     <div id="dropdown-container" className="relative">
       <input
-        className="w-full h-10 border-2 leading-tight bg-inherit"
+        className="w-full h-10 border-2 leading-tight bg-inherit px-2"
         type="text"
         id="track"
         value={trackText}
@@ -68,7 +75,7 @@ export const Options = ({
     .slice(0, TRACKS_SHOWN);
   return filteredTracks.length > 0 ? (
     <div className="border-2 bg-black absolute bottom-full w-full">
-      {filteredTracks.map(({ name, artists, id }) => {
+      {filteredTracks.map(({ name, id }) => {
         return (
           <button
             onMouseDown={() => {
@@ -78,8 +85,7 @@ export const Options = ({
             key={id}
             className="w-full h-8 border-2 flex items-center bg-inherit whitespace-nowrap overflow-x-scroll"
           >
-            {name +
-              (artists.length > 1 ? ` ft. ${artists.slice(1).join(", ")}` : "")}
+            {name}
           </button>
         );
       })}
