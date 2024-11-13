@@ -21,19 +21,19 @@ const renderAttempts = (prevAttempts: string[]) => {
   for (const attempt of prevAttempts) {
     if (attempt === "") {
       attempts.push(
-        <Attempt>
+        <Attempt key={crypto.randomUUID()}>
           <span className="text-gray-500">Skipped</span>
         </Attempt>
       );
     } else {
       const track = tracks.find((track) => track.id == attempt);
       if (track) {
-        attempts.push(<Attempt>{track.name}</Attempt>);
+        attempts.push(<Attempt key={track.id}>{track.name}</Attempt>);
       }
     }
   }
   for (let i = 0; i < TOTAL_TRIES - prevAttempts.length; i++) {
-    attempts.push(<Attempt />);
+    attempts.push(<Attempt key={crypto.randomUUID()} />);
   }
   return attempts;
 };
