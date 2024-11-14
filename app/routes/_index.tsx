@@ -71,24 +71,24 @@ export default function Index() {
       const callback = (EmbedController) => {
         setEmbedController(EmbedController);
         EmbedController.addListener("playback_update", (e) => {
-          const newProgress = parseInt(e.data.position / 1000, 10);
-          setIsPlaying(!e.data.isPaused);
+          const newProgress = Math.round(e.data.position / 1000);
+          // const newProgress = parseInt(e.data.position / 1000, 10);
+          console.log(e.data.position, newProgress);
           setProgress(newProgress);
+          setIsPlaying(!e.data.isPaused);
         });
       };
       IFrameAPI.createController(element, options, callback);
     };
   }, [trackId]);
 
+  // Pause music if song gets to the limit
   useEffect(() => {
-    if (progress === limit && embedController) {
-      console.log(progress, limit);
-      // setTimeout(() => {
-      //   embedController.pause();
-      //   setProgress(0);
-      // }, 150);
+    if (progress >= limit && embedController) {
       embedController.pause();
-      setProgress(0);
+      setTimeout(() => {
+        setProgress(0);
+      }, 100);
     }
   }, [progress, limit, embedController]);
 
@@ -105,10 +105,11 @@ export default function Index() {
       </header>
       <div id="content" className="max-w-screen-sm mx-auto">
         <GuessAttempts previousTrackIds={previousTrackIds} />
-        <p>{progress}</p>
+        <br />
         <ProgressBar progress={progress} limit={limit} isPlaying={isPlaying} />
         <div id="embed-iframe"></div>
-        <div className="flex justify-center my-4">
+        <div className="flex items-center justify-between my-4">
+          <span>{`0:${progress < 10 ? "0" : ""}${progress}`}</span>
           {isPlaying ? (
             <button
               onClick={() => {
@@ -131,6 +132,7 @@ export default function Index() {
               <PlayButton />
             </button>
           )}
+          <span>0:17</span>
         </div>
         <div className="w-full mx-auto">
           <TrackInput
