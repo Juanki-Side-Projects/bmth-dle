@@ -7,6 +7,7 @@
     "build": "remix vite:build",
     "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
+    "sso": "aws sso login --sso-session=juanki",
     "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc"
   },
@@ -22,6 +23,7 @@
     "lucide-react": "^0.454.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "sst": "3.3.22",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7"
   },
@@ -43,6 +45,9 @@
     "typescript": "^5.1.6",
     "vite": "^5.1.0",
     "vite-tsconfig-paths": "^4.2.1"
+  },
+  "overrides": {
+    "valibot": "^0.41.0"
   },
   "engines": {
     "node": ">=20.0.0"
