@@ -14,13 +14,13 @@ So:
 const MAX_LENGTH = 17;
 
 export interface Props {
-  progress: number;
   limit: number;
   isPlaying: boolean;
 }
 
-export const ProgressBar = ({ progress, limit, isPlaying }: Props) => {
+export const ProgressBar = ({ limit, isPlaying }: Props) => {
   const barLineClassName = "h-full absolute w-px border-inherit border z-10";
+  const limitWidth = `${(limit / MAX_LENGTH) * 100}%`;
   return (
     // <div className="absolute w-full border-2 left-0 h-4"></div>
     <div className="border h-4 relative border-white">
@@ -30,10 +30,14 @@ export const ProgressBar = ({ progress, limit, isPlaying }: Props) => {
       <div className={barLineClassName} style={{ left: "47.058%" }}></div>
       <div className={barLineClassName} style={{ left: "70.588%" }}></div>
       <div
+        className="h-full absolute border-inherit bg-blue-700"
+        style={{ width: limitWidth }}
+      />
+      <div
         id="bar"
-        className="h-full bg-blue-700 absolute left-0 transition-all ease-linear"
+        className="h-full bg-cyan-400 absolute left-0 transition-all ease-linear"
         style={{
-          width: isPlaying ? `${(limit / MAX_LENGTH) * 100}%` : 0,
+          width: isPlaying ? limitWidth : 0,
           transitionDuration: isPlaying ? `${limit}s` : "0s",
         }}
       ></div>

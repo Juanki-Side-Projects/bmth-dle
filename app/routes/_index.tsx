@@ -99,7 +99,7 @@ export default function Index() {
       <div id="content" className="max-w-screen-sm mx-auto">
         <GuessAttempts previousTrackIds={previousTrackIds} />
         <br />
-        <ProgressBar progress={progress} limit={limit} isPlaying={isPlaying} />
+        <ProgressBar limit={limit} isPlaying={isPlaying} />
         <div id="embed-iframe"></div>
         <div className="flex items-center justify-between my-4">
           <span>{`0:${progress < 10 ? "0" : ""}${progress}`}</span>
