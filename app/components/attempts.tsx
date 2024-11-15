@@ -18,10 +18,11 @@ const Attempt = ({ children }: AttemptProps) => (
 
 const renderAttempts = (prevAttempts: string[]) => {
   const attempts = [];
-  for (const attempt of prevAttempts) {
+  for (let i = 0; i < prevAttempts.length; i++) {
+    const attempt = prevAttempts[i];
     if (attempt === "") {
       attempts.push(
-        <Attempt key={crypto.randomUUID()}>
+        <Attempt key={i}>
           <span className="text-gray-500">Skipped</span>
         </Attempt>
       );
@@ -33,7 +34,7 @@ const renderAttempts = (prevAttempts: string[]) => {
     }
   }
   for (let i = 0; i < TOTAL_TRIES - prevAttempts.length; i++) {
-    attempts.push(<Attempt key={crypto.randomUUID()} />);
+    attempts.push(<Attempt key={prevAttempts.length + i} />);
   }
   return attempts;
 };
