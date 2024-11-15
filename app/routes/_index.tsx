@@ -184,8 +184,6 @@ export default function Index() {
             </button>
           </div>
         </div>
-        <p>Limit: {limit} seconds</p>
-        <p>Tries: {tries}</p>
       </div>
     </div>
   );
