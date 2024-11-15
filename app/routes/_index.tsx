@@ -58,8 +58,8 @@ export default function Index() {
       const element = document.getElementById("embed-iframe");
       const options = {
         uri: `spotify:track:${trackId}`,
-        // width: 0,
-        // height: 0,
+        width: 0,
+        height: 0,
       };
       const callback = (EmbedController) => {
         setEmbedController(EmbedController);
