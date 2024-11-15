@@ -1,10 +1,10 @@
 import type { MetaFunction } from "@remix-run/node";
 import { useEffect, useState } from "react";
-import { promises as fs } from "fs";
 import { useLoaderData } from "@remix-run/react";
 import { TrackInput } from "~/components/track-input";
 import { GuessAttempts } from "~/components/attempts";
 import { ProgressBar } from "~/components/progress-bar";
+import { trackIds } from "~/static/trackIds";
 const MAX_TRIES = 6;
 
 export const meta: MetaFunction = () => {
@@ -15,15 +15,8 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader() {
-  const fileContents = await fs.readFile(
-    new URL("../static/tracks.json", import.meta.url),
-    { encoding: "utf-8" }
-  );
-
-  const data = JSON.parse(fileContents);
-
-  const idx = Math.floor(Math.random() * data.tracks.length - 1);
-  const trackId = data.tracks[idx];
+  const idx = Math.floor(Math.random() * trackIds.length - 1);
+  const trackId = trackIds[idx];
 
   return { trackId };
 }
@@ -65,8 +58,8 @@ export default function Index() {
       const element = document.getElementById("embed-iframe");
       const options = {
         uri: `spotify:track:${trackId}`,
-        width: 0,
-        height: 0,
+        // width: 0,
+        // height: 0,
       };
       const callback = (EmbedController) => {
         setEmbedController(EmbedController);

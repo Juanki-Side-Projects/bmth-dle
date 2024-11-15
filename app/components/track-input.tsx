@@ -74,7 +74,7 @@ export const Options = ({
     .filter(({ name }) => regex.test(name))
     .slice(0, TRACKS_SHOWN);
   return filteredTracks.length > 0 ? (
-    <div className="border-2 bg-black absolute bottom-full w-full">
+    <div className="border-2 bg-black absolute bottom-full w-full z-20">
       {filteredTracks.map(({ name, id }) => {
         return (
           <button

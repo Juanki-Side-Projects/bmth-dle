@@ -616,56 +616,6 @@ export const tracks = [
   },
   {
     artists: ["Bring Me The Horizon"],
-    id: "7FlYbHhLM1gstJjYcZ5Bnj",
-    name: "The Comedown",
-  },
-  {
-    artists: ["Bring Me The Horizon"],
-    id: "3eSnqrgqm1R0mkgz80Cpzq",
-    name: "Chelsea Smile",
-  },
-  {
-    artists: ["Bring Me The Horizon"],
-    id: "0HzyXtiko17jqEY9JgtIM5",
-    name: "It Was Written In Blood",
-  },
-  {
-    artists: ["Bring Me The Horizon"],
-    id: "5DLPez2wUlpWgLOgeZ4a9A",
-    name: "Death Breath",
-  },
-  {
-    artists: ["Bring Me The Horizon"],
-    id: "3nAmNBPglbB7vPqjxYqBDj",
-    name: "Football Season is Over",
-  },
-  {
-    artists: ["Bring Me The Horizon"],
-    id: "03ieueRnxdKxcsIF2Aenq4",
-    name: "Sleep With One Eye Open",
-  },
-  {
-    artists: ["Bring Me The Horizon"],
-    id: "4S18jumfuq7s3UKZSYGxC6",
-    name: "Diamonds Aren't Forever",
-  },
-  {
-    artists: ["Bring Me The Horizon"],
-    id: "3UwnZUHhFCm3IErEUTQ3FU",
-    name: "The Sadness Will Never End",
-  },
-  {
-    artists: ["Bring Me The Horizon"],
-    id: "1nfwkn4NLvGQ0bxIiqWSMa",
-    name: "No Need for Introductions, I've Read About Girls Like You On The Backs Of Toilet Doors",
-  },
-  {
-    artists: ["Bring Me The Horizon"],
-    id: "4Ds6K8Uu7PEZdFYO3MMRva",
-    name: "Suicide Season",
-  },
-  {
-    artists: ["Bring Me The Horizon"],
     id: "5fzJpKGHEMV2Hs2EoxJVeJ",
     name: "Pray For Plagues",
   },
@@ -715,16 +665,6 @@ export const tracks = [
     name: "Off The Heezay",
   },
   {
-    artists: ["Bring Me The Horizon"],
-    id: "1rBiNR61IhvbzeKwfs3AwE",
-    name: "Kool-Aid",
-  },
-  {
-    artists: ["Bring Me The Horizon"],
-    id: "19vHgVS1aukRiQWhTqfKnE",
-    name: "DArkSide",
-  },
-  {
     artists: ["YUNGBLUD", "Oli Sykes", "Bring Me The Horizon"],
     id: "0UNDrAptMY5glGrcdr93Kx",
     name: "Happier (feat. Oli Sykes of Bring Me The Horizon)",
@@ -740,29 +680,9 @@ export const tracks = [
     name: "Werewolf (feat. Bring Me The Horizon)",
   },
   {
-    artists: [
-      "Bring Me The Horizon",
-      "Lil Uzi Vert",
-      "Daryl Palumbo",
-      "Glassjaw",
-    ],
-    id: "5viZ8CLipufc1Q1NXpMRNN",
-    name: "AmEN! (feat. Lil Uzi Vert and Daryl Palumbo of Glassjaw)",
-  },
-  {
     artists: ["SLANDER", "blackbear", "Bring Me The Horizon"],
     id: "4QcfHUpGxGGKh7VIVs3LYI",
     name: "Wish I Could Forget (with blackbear & Bring Me The Horizon)",
-  },
-  {
-    artists: ["Bring Me The Horizon"],
-    id: "5BgnL6gHauuvxe4Ok6W1aC",
-    name: "LosT",
-  },
-  {
-    artists: ["Bring Me The Horizon"],
-    id: "5fpq1wF8xa5tSSlcKHdmGQ",
-    name: "sTraNgeRs",
   },
   {
     artists: ["Sigrid", "Bring Me The Horizon"],
@@ -777,11 +697,6 @@ export const tracks = [
   {
     artists: ["Sigrid", "Bring Me The Horizon"],
     id: "54f5PsNwphKPXu992Pl7In",
-    name: "Bad Life - acoustic",
-  },
-  {
-    artists: ["Sigrid", "Bring Me The Horizon"],
-    id: "5DwJKJ3Gg5UlzsTMpYXkwT",
     name: "Bad Life - acoustic",
   },
   {
@@ -815,11 +730,6 @@ export const tracks = [
     name: "Let’s Get The Party Started (feat. Bring Me The Horizon)",
   },
   {
-    artists: ["Bring Me The Horizon"],
-    id: "2gT72HL4Y84K2Mle3miAMJ",
-    name: "DiE4u",
-  },
-  {
     artists: ["Olivia O'Brien", "Oli Sykes", "Bring Me The Horizon"],
     id: "5jbk17nRpXXvzGXPXjm3uW",
     name: "No More Friends (with Oli Sykes of Bring Me The Horizon)",
@@ -828,26 +738,6 @@ export const tracks = [
     artists: ["Bring Me The Horizon", "Jeris Johnson"],
     id: "0bMOyiuk22fAKiwNoYsRYN",
     name: "Can You Feel My Heart - Remix",
-  },
-  {
-    artists: ["Bring Me The Horizon"],
-    id: "3aniWcwiiYKHpm3F5TdeKD",
-    name: "Teardrops",
-  },
-  {
-    artists: ["Bring Me The Horizon", "YUNGBLUD"],
-    id: "7fQox8Ere1HDm0jhSnsFHu",
-    name: "Obey (with YUNGBLUD)",
-  },
-  {
-    artists: ["Bring Me The Horizon"],
-    id: "5OxclJsdFESni44YlpNpkR",
-    name: "Parasite Eve",
-  },
-  {
-    artists: ["Bring Me The Horizon", "Death Stranding: Timefall"],
-    id: "2eZjO58Qe9og2xmyfw4qwJ",
-    name: "Ludens",
   },
   {
     artists: ["Bring Me The Horizon"],
@@ -870,31 +760,6 @@ export const tracks = [
     name: "mother tongue - Sub Focus Remix",
   },
   {
-    artists: ["Bring Me The Horizon", "Grimes"],
-    id: "6kK1tvN0YOoUnRFM1NSjsL",
-    name: "nihilist blues (feat. Grimes)",
-  },
-  {
-    artists: ["Bring Me The Horizon"],
-    id: "5SeFvF8sI7kVllCY0L83z6",
-    name: "mother tongue",
-  },
-  {
-    artists: ["Bring Me The Horizon"],
-    id: "03CbQgFxnBFoaaVJTfEqMD",
-    name: "medicine",
-  },
-  {
-    artists: ["Bring Me The Horizon", "Dani Filth"],
-    id: "1kq5dLuzkRLgemasnkUg9G",
-    name: "wonderful life (feat. Dani Filth)",
-  },
-  {
-    artists: ["Bring Me The Horizon"],
-    id: "7dRj3sTBYkNbEx5kdNHriv",
-    name: "MANTRA",
-  },
-  {
     artists: ["Bring Me The Horizon"],
     id: "4C88O5aGpDGolyev7B3URt",
     name: "Oh No - Radio Edit",
@@ -903,11 +768,6 @@ export const tracks = [
     artists: ["Bring Me The Horizon"],
     id: "2TB3yZgVmXKZvmPWcCUr2H",
     name: "Drown - Live from Maida Vale",
-  },
-  {
-    artists: ["Bring Me The Horizon"],
-    id: "16RHXqV9K527pNj1v02PNC",
-    name: "Drown",
   },
   {
     artists: ["Bring Me The Horizon"],
@@ -930,11 +790,6 @@ export const tracks = [
     name: "Traitors never Play Hang-man.",
   },
   {
-    artists: ["Bring Me The Horizon"],
-    id: "16pVm6CEelmu8uUlXEyq0s",
-    name: "Can You Feel My Heart",
-  },
-  {
     artists: ["Bring Me The Horizon", "Shikari Sound System"],
     id: "0FcAGgd9KT5jClICT5aFMm",
     name: "Can You Feel My Heart - Shikari Sound System Remix",
@@ -946,17 +801,7 @@ export const tracks = [
   },
   {
     artists: ["Bring Me The Horizon"],
-    id: "15gIR5Qd7ngiBAyIWxYOg0",
-    name: "Sleepwalking",
-  },
-  {
-    artists: ["Bring Me The Horizon"],
     id: "3sWWkZy3V3uqcPsYZdXntj",
     name: "Sleepwalking - Instrumental",
-  },
-  {
-    artists: ["Bring Me The Horizon"],
-    id: "4h6JBgAKtVHYi29Rhpcqb4",
-    name: "Shadow Moses",
   },
 ];
