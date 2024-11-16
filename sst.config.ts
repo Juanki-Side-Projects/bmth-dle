@@ -20,7 +20,11 @@ export default $config({
 
     cluster.addService("BMTHdleService", {
       loadBalancer: {
-        ports: [{ listen: "80/http", forward: "3000/http" }],
+        domain: "bmthdle.xyz",
+        ports: [
+          { listen: "80/http", forward: "3000/http" },
+          { listen: "443/https", forward: "3000/http" },
+        ],
       },
       dev: {
         command: "npm run dev",
