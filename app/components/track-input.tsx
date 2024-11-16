@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { tracks } from "~/static/tracks";
+import classes from "./track-input.module.css";
 
 const TRACKS_SHOWN = 10;
 
@@ -44,12 +45,6 @@ export const TrackInput = ({
           selectedTrackId={selectedTrackId}
         />
       ) : null}
-      {/* <Options
-        trackText={trackText}
-        setTrackText={setTrackText}
-        setSelectedTrackId={setSelectedTrackId}
-        selectedTrackId={selectedTrackId}
-      /> */}
     </div>
   );
 };
@@ -83,7 +78,7 @@ export const Options = ({
               setTrackText(name);
             }}
             key={id}
-            className="w-full h-8 border-2 flex items-center bg-inherit whitespace-nowrap overflow-x-scroll"
+            className={`w-full h-8 border-2 flex items-center bg-inherit whitespace-nowrap overflow-x-scroll ${classes.option}`}
           >
             {name}
           </button>
