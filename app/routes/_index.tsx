@@ -5,6 +5,7 @@ import { TrackInput } from "~/components/track-input";
 import { GuessAttempts } from "~/components/attempts";
 import { ProgressBar } from "~/components/progress-bar";
 import { trackIds } from "~/static/trackIds";
+import Confetti from "react-confetti";
 const MAX_TRIES = 6;
 
 export const meta: MetaFunction = () => {
@@ -220,10 +221,12 @@ interface GameEndScreenProps {
 }
 
 const GameEndScreen = ({ gameState, tries, trackId }: GameEndScreenProps) => {
+  const theyWon = gameState === GAME_STATE.WIN;
   return (
     <div className="text-white w-full flex flex-col items-center my-10">
+      {theyWon ? <Confetti /> : null}
       <p className="text-4xl my-5">
-        {gameState === GAME_STATE.WIN
+        {theyWon
           ? `Congrats! You got it in ${tries} ${tries == 1 ? "try" : "tries"}.`
           : `Nice try!`}
       </p>
