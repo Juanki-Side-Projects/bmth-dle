@@ -6,12 +6,12 @@ export default $config({
       name: "bmth-dle",
       removal: input?.stage === "production" ? "retain" : "remove",
       home: "aws",
-      providers: {
-        aws: {
-          profile:
-            input.stage === "production" ? "juanki-production" : "juanki-dev",
-        },
-      },
+      // providers: {
+      //   aws: {
+      //     profile:
+      //       input.stage === "production" ? "juanki-production" : "juanki-dev",
+      //   },
+      // },
     };
   },
   async run() {
