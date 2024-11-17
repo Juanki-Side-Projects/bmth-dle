@@ -10,8 +10,10 @@ interface AttemptProps {
   children?: ReactNode;
 }
 
+const X = <span className="ml-2 mr-3">&#10060;</span>;
+
 const Attempt = ({ children }: AttemptProps) => (
-  <div className="min-w-96 h-10 mb-2 border-2 border-blue-500 my-5 px-1 flex items-center">
+  <div className="min-w-96 h-10 mb-2 border-2 border-blue-500 my-5 px-1 flex items-center leading-snug">
     {children}
   </div>
 );
@@ -29,7 +31,12 @@ const renderAttempts = (prevAttempts: string[]) => {
     } else {
       const track = tracks.find((track) => track.id == attempt);
       if (track) {
-        attempts.push(<Attempt key={track.id}>{track.name}</Attempt>);
+        attempts.push(
+          <Attempt key={track.id}>
+            {X}
+            {track.name}
+          </Attempt>
+        );
       }
     }
   }
