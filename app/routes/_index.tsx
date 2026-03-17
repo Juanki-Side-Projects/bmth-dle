@@ -1,4 +1,4 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from "@remix-run/cloudflare";
 import { useEffect, useState } from "react";
 import { useLoaderData } from "@remix-run/react";
 import { TrackInput } from "~/components/track-input";
