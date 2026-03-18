@@ -1,5 +1,3 @@
-import { json } from "@remix-run/cloudflare";
-
-export function loader() {
-  return json({}, { status: 200 });
+export default function HealthCheck() {
+  return null;
 }

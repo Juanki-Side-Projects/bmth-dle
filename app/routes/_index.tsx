@@ -1,6 +1,5 @@
-import type { MetaFunction } from "@remix-run/cloudflare";
+import type { MetaFunction } from "@remix-run/react";
 import { useEffect, useState } from "react";
-import { useLoaderData } from "@remix-run/react";
 import { TrackInput } from "~/components/track-input";
 import { GuessAttempts } from "~/components/attempts";
 import { ProgressBar } from "~/components/progress-bar";
@@ -14,13 +13,6 @@ export const meta: MetaFunction = () => {
     { name: "description", content: "Bring me the Horizon daily game" },
   ];
 };
-
-export async function loader() {
-  const idx = Math.floor(Math.random() * trackIds.length - 1);
-  const trackId = trackIds[idx];
-
-  return { trackId };
-}
 
 const useScript = () => {
   useEffect(() => {
@@ -38,7 +30,9 @@ export enum GAME_STATE {
 }
 
 export default function Index() {
-  const { trackId } = useLoaderData<typeof loader>();
+  const [trackId] = useState(
+    () => trackIds[Math.floor(Math.random() * trackIds.length)]
+  );
   const [gameState, setGameState] = useState(GAME_STATE.PLAYING);
   const [tries, setTries] = useState(1);
   const [previousTrackIds, setPreviousTrackIds] = useState<string[]>([]);
